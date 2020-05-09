@@ -1,0 +1,18 @@
+server:
+  port: 56020
+
+
+spring:
+  application:
+    name: serve-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: f67105cf-4609-484b-b697-5d880e8f3ec9
+        cluster-name: DEFAULT
+
+logging:
+  level:
+    root: info
+    org.springframework: info

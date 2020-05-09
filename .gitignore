@@ -1,0 +1,6 @@
+### JetBrains template
+.idea/
+/*/.idea/
+/*/out/
+**.iml
+**/**/target/

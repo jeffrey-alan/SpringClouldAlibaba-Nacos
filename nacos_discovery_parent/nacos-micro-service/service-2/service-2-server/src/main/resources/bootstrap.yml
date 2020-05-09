@@ -1,0 +1,33 @@
+server:
+  port: ${port:56040}
+
+
+spring:
+  application:
+    name: service2
+  main:
+    allow-bean-definition-overriding: true # SpringBoot 2.1需要设置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: f67105cf-4609-484b-b697-5d880e8f3ec9
+        cluster-name: DEFAULT
+      config:
+        server-addr: 127.0.0.1:8848 # 配置中心地址
+        file-extension: yaml
+        namespace: f67105cf-4609-484b-b697-5d880e8f3ec9
+        group: NACOS_MICROSERVICE_GROUP
+dubbo:
+  # dubbo 服务扫描基准包
+  scan:
+    base-packages: cn.myfreecloud
+  protocol:
+    name: dubbo
+    port: ${dubbo_port:20891}
+  registry:
+    address: nacos://127.0.0.1:8848
+  application:
+    qos-enable: false     # dubbo 运维服务是否开启
+  consumer:
+    check: false          # 启动时就检查依赖的服务
